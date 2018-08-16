@@ -1,18 +1,25 @@
 <template>
   <div class="container">
-    <ul class="todo-list">
-      <li v-for="(todo, index) in todos" :key="index">
-        {{ todo.name }} <button class="button is-danger is-small" @click="remove(todo)">Remove</button>
-      </li>
-      <div class="field has-addons new-todo">
-        <div class="control">
-          <input class="input" type="text" v-model="todo.name" >
-        </div>
-        <div class="control">
-          <button class="button is-primary" @click="add" @keyup.enter="add">Add</button>
-        </div>
+    <table class="table">
+      <thead>
+        <th>Name</th>
+        <th>Operation</th>
+      </thead>
+      <tbody>
+        <tr v-for="(todo, key) in todos" :key="key">
+          <td class="todo-name">{{ todo.name }}</td>
+          <td><button class="button is-small is-danger">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="field has-addons new-todo">
+      <div class="control">
+        <input class="input" type="text" v-model="todo.name" >
       </div>
-    </ul>
+      <div class="control">
+        <button class="button is-primary" @click="add" @keyup.enter="add">Add</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -60,6 +67,10 @@ export default {
 
 .new-todo {
   margin-top: 36px;
+}
+
+.todo-name {
+  min-width: 400px;
 }
 
 </style>
