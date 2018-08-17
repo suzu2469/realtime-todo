@@ -8,7 +8,7 @@
       <tbody>
         <tr v-for="(todo, key) in todos" :key="key">
           <td class="todo-name">{{ todo.name }}</td>
-          <td><button class="button is-small is-danger">Remove</button></td>
+          <td><button class="button is-small is-danger" @click="remove(todo)">Remove</button></td>
         </tr>
       </tbody>
     </table>
